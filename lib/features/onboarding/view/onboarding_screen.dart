@@ -115,7 +115,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 return Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 160),
+                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 200),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,7 +130,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             height: 1.25,
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 20),
                         Text(
                           page.description,
                           textAlign: TextAlign.center,
@@ -152,7 +152,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 120,
+            bottom: 140,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(_pages.length, (index) {
