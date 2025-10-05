@@ -4,7 +4,10 @@ import 'package:hotel_app/core/theme/app_colors.dart';
 import 'package:hotel_app/core/theme/theme_provider.dart';
 import 'package:hotel_app/core/widgets/custom_nav_icon.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hotel_app/features/bookings/view/bookings_screen.dart';
 import 'package:hotel_app/features/home/view/home_screen.dart';
+import 'package:hotel_app/features/messages/view/messages_screen.dart';
+import 'package:hotel_app/features/profile/view/profile_screen.dart';
 import 'package:hotel_app/features/splash/view/splash_screen.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -20,6 +23,21 @@ final GoRouter appRouter = GoRouter(
           path: '/home',
           pageBuilder: (context, state) =>
               NoTransitionPage(child: const HomeScreen()),
+        ),
+        GoRoute(
+          path: '/bookings',
+          pageBuilder: (context, state) =>
+              NoTransitionPage(child: const BookingsScreen()),
+        ),
+        GoRoute(
+          path: '/messages',
+          pageBuilder: (context, state) =>
+              NoTransitionPage(child: const MessagesScreen()),
+        ),
+        GoRoute(
+          path: '/profile',
+          pageBuilder: (context, state) =>
+              NoTransitionPage(child: const ProfileScreen()),
         ),
       ],
     ),

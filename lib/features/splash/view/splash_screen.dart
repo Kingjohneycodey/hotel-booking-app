@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void _navigateToHome() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 10), () {
       if (mounted) {
         context.go('/home');
       }
@@ -92,12 +92,15 @@ class _SplashScreenState extends State<SplashScreen>
                           ],
                         ),
                         child: Center(
-                          child: Image.asset(
-                            'assets/images/logo.png',
-                            width: 60,
-                            height: 60,
-                            color: Colors.white,
-                            fit: BoxFit.contain,
+                          // Make the logo image rounded by wrapping it in a ClipRRect with a circular border radius
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Image.asset(
+                              'assets/images/logo.png',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ),
