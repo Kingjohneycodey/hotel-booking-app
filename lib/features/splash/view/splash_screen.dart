@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hotel_app/core/theme/app_colors.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -46,10 +47,16 @@ class _SplashScreenState extends State<SplashScreen>
     _navigateToHome();
   }
 
-  void _navigateToHome() {
-    Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
+  void _navigateToHome() async {
+    Future.delayed(const Duration(seconds: 3), () async {
+      if (!mounted) return;
+      final preferences = await SharedPreferences.getInstance();
+      final hasOnboarded = preferences.getBool('hasOnboarded') ?? false;
+      if (!mounted) return;
+      if (hasOnboarded) {
         context.go('/home');
+      } else {
+        context.go('/onboarding');
       }
     });
   }
@@ -82,10 +89,10 @@ class _SplashScreenState extends State<SplashScreen>
                         height: 120,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.splashAccent.withOpacity(0.3),
+                          color: AppColors.primary.withValues(alpha: 0.3),
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.splashAccent.withOpacity(0.3),
+                              color: AppColors.primary.withValues(alpha: 0.3),
                               blurRadius: 20,
                               spreadRadius: 5,
                             ),
