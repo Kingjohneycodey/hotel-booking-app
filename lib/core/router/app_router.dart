@@ -10,6 +10,7 @@ import 'package:hotel_app/features/messages/view/messages_screen.dart';
 import 'package:hotel_app/features/profile/view/profile_screen.dart';
 import 'package:hotel_app/features/splash/view/splash_screen.dart';
 import 'package:hotel_app/features/onboarding/view/onboarding_screen.dart';
+import 'package:hotel_app/features/auth/login/view/login_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/splash',
@@ -19,6 +20,7 @@ final GoRouter appRouter = GoRouter(
       path: '/onboarding',
       builder: (context, state) => const OnboardingScreen(),
     ),
+    GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
     ShellRoute(
       builder: (context, state, child) {
         return MainAppShell(child: child);
